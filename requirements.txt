@@ -1,1 +1,7 @@
 fogbugz-orm==0.2.7
+
+# fogbugz-orm requires fogbugz(FogbugzPy)
+# fogbugz requires BeautifulSoup==3.2, 
+# While sentry requires BeautifulSoup>=3.2.1,<3.3.0 
+# Thus, we need to sepcify the BeautifulSoup version
+BeautifulSoup>=3.2.1,<3.3.0 

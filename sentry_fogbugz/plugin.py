@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from sentry.plugins.bases.issue import IssuePlugin
 
 import fborm
+import jsontree
 
 import sentry_fogbugz 
 
@@ -58,7 +59,18 @@ class FogbugzPlugin(IssuePlugin):
 
     def create_issue(self, group, form_data, **kwargs):
         """Create a Fogbugz case"""
-        pass
+        fb = fborm.FogBugzORM(
+            self.get_option('host_url', group.project), 
+            self.get_option('secret_token', group.project)
+        )
+
+        bug = jsontree.jsontree()
+        bug.sTitle = form_data['title'].encode('utf8')
+        bug.sEvent = form_data['description'].encode('utf8')
+        bug.sFormat = u'html'.encode('utf8')
+
+        ixBug = fb.new(bug, bugtype={})
+        return ixBug.numerator 
 
     def get_issue_url(self, group, issue_id, **kwargs):
         host = self.get_option('host_url', group.project)
