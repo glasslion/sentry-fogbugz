@@ -5,7 +5,7 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the relevant file
-with open(path.join(here, 'DESCRIPTION.rst'), encoding='utf-8') as f:
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
@@ -16,7 +16,7 @@ setup(
     # http://packaging.python.org/en/latest/tutorial.html#version
     version='0.1.0',
 
-    description='A sample Python project',
+    description='A Sentry extension which integrates with Fogbugz',
     long_description=long_description,
 
     # The project's main homepage.

@@ -1,7 +1,7 @@
 sentry-fogbugz
 ==============
 
-An extension for Sentry which integrates with [Fogbugz][1] Bug Tracking. Specifically, it allows you to easily create cases from events within Sentry.
+An extension for Sentry which integrates with `Fogbugz`_ Bug Tracking. Specifically, it allows you to easily create cases from events within Sentry.
 
 
 Install
@@ -12,4 +12,4 @@ Install the package via ``pip``::
     pip install sentry-fogbugz
 
 
-  [1]: http://www.fogcreek.com/fogbugz/
+.. _Fogbugz: http://www.fogcreek.com/fogbugz/
