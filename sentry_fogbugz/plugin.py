@@ -10,7 +10,8 @@ from sentry.plugins.bases.issue import IssuePlugin
 import fborm
 import jsontree
 
-import sentry_fogbugz 
+import sentry_fogbugz
+
 
 class FogbugzOptionsForm(forms.Form):
     host_url = forms.URLField(
@@ -18,15 +19,14 @@ class FogbugzOptionsForm(forms.Form):
     secret_token = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'span9'}))
     area = forms.CharField(
-        label="Case Area (Optional)",
+        label="Default Case Area (Optional)",
         required=False, widget=forms.TextInput(attrs={'class': 'span9'}))
     category = forms.CharField(
-        label="Case Category (Optional)",
+        label="DefaultCase Category (Optional)",
         required=False, widget=forms.TextInput(attrs={'class': 'span9'}))
     project = forms.CharField(
-        label="Case Project (Optional)",
+        label="Default Case Project (Optional)",
         required=False, widget=forms.TextInput(attrs={'class': 'span9'}))
-
 
     def clean(self):
         config = self.cleaned_data
@@ -37,7 +37,7 @@ class FogbugzOptionsForm(forms.Form):
 
 class FogbugzPlugin(IssuePlugin):
     author = 'Lijian'
-    author_url ='https://github.com/glasslion/sentry-fogbugz'
+    author_url = 'https://github.com/glasslion/sentry-fogbugz'
     version = sentry_fogbugz.VERSION
     description = "Integrate Fogbugz."
     resource_links = [
@@ -60,7 +60,7 @@ class FogbugzPlugin(IssuePlugin):
     def create_issue(self, group, form_data, **kwargs):
         """Create a Fogbugz case"""
         fb = fborm.FogBugzORM(
-            self.get_option('host_url', group.project), 
+            self.get_option('host_url', group.project),
             self.get_option('secret_token', group.project)
         )
 
@@ -70,7 +70,7 @@ class FogbugzPlugin(IssuePlugin):
         bug.sFormat = u'html'.encode('utf8')
 
         ixBug = fb.new(bug, bugtype={})
-        return ixBug.numerator 
+        return ixBug.numerator
 
     def get_issue_url(self, group, issue_id, **kwargs):
         host = self.get_option('host_url', group.project)
