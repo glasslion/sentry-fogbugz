@@ -1,4 +1,4 @@
-fogbugz-orm==0.2.7
+fogbugz-orm
 
 # fogbugz-orm requires fogbugz(FogbugzPy)
 # fogbugz requires BeautifulSoup==3.2, 
