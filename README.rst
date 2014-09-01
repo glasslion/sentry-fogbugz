@@ -7,11 +7,21 @@ An extension for Sentry which integrates with `Fogbugz`_ Bug Tracking. Specifica
 Install
 -------
 
-Install the package and its requirements via ``pip``. Ideally I should put all the dependences into the ``setup.py`` and let the ``setup.py`` or ``pip`` install them automatically. But unfortunately, the official fogbuz python API client have a strict and unreasonable requirement on the BeautifulSoup lib which is conflict with Sentry's requirement. Thus you have to install its dependences manually or via the ``requirements.txt``::
+Install the sentry-fogbugz package and its requirements with the following commands.
+
+::
 
     pip install sentry-fogbugz
     pip install fogbugz-orm
     pip install "BeautifulSoup>=3.2.1,<3.3.0 "
+
+
+Ideally I should put all the dependences inside the ``setup.py`` so people can install the dependences automatically with a single command like ``python setup.py install`` or ``pip sentry-fogbugz``.
+
+But unfortunately, FogBugzPy(the official fogbuz python API client) strictly requires ``BeautifulSoup==3.2`` and that is conflict with Sentry's requirement (for now Sentry requires ``BeautifulSoup==3.2.1``). Although FogBugzPy is compatible with ``BeautifulSoup==3.2.1``, but based on my communication with its auther, I believe it's unlikely that FogBugzPy would fix that problem.
+
+Thus you have to install ``sentry-fogbugz`` and its dependences separately to avoid the conflicts.
+
 
 Get a FogBugz XML API Token
 ----------------------------
@@ -31,6 +41,8 @@ The API should give you an XML response with a token that looks something like t
     </response>
 
 Reference: `How To Get a FogBugz XML API Token ( From Fog Creek )`_
+
+
 
 .. _Fogbugz: http://www.fogcreek.com/fogbugz/
 .. _How To Get a FogBugz XML API Token ( From Fog Creek ): http://help.fogcreek.com/8447/how-to-get-a-fogbugz-xml-api-token
