@@ -30,5 +30,7 @@ The API should give you an XML response with a token that looks something like t
 
 Reference: `How To Get a FogBugz XML API Token ( From Fog Creek )`_
 
+
+
 .. _Fogbugz: http://www.fogcreek.com/fogbugz/
 .. _How To Get a FogBugz XML API Token ( From Fog Creek ): http://help.fogcreek.com/8447/how-to-get-a-fogbugz-xml-api-token
