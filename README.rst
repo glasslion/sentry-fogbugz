@@ -7,11 +7,9 @@ An extension for Sentry which integrates with `Fogbugz`_ Bug Tracking. Specifica
 Install
 -------
 
-Install the package and its requirements via ``pip``. Ideally I should put all the dependences into the ``setup.py`` and let the ``setup.py`` or ``pip`` install them automatically. But unfortunately, the official fogbuz python API client have a strict and unreasonable requirement on the BeautifulSoup lib which is conflict with Sentry's requirement. Thus you have to install its dependences manually or via the ``requirements.txt``::
+::
 
     pip install sentry-fogbugz
-    pip install fogbugz-orm
-    pip install "BeautifulSoup>=3.2.1,<3.3.0 "
 
 Get a FogBugz XML API Token
 ----------------------------

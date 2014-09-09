@@ -66,6 +66,8 @@ setup(
     # requirements files see:
     # https://packaging.python.org/en/latest/technical.html#install-requires-vs-requirements-files
     install_requires=[
+        'fogbugz-orm',
+        'fogbugz>=0.9.6'
     ],
 
     entry_points={
